@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="navigation">
 <head>
 	<title>Practica 3</title>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
-</head>
-<body ng-app="navigation">
-	<h1>Hola Mundo</h1>
-	<div ng-view>		
-	</div>
-
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.min.js"></script>
 	<script src="app.js"></script>
 	<script src="controllers.js"></script>
+</head>
+<body>
+	<h1>Hola Mundo</h1>
+	<a href="#/">Home</a>
+	<a href="#/about">About</a>
+	<div ng-view>		
+	</div>	
 </body>
 </html>

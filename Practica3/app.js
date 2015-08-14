@@ -1,19 +1,17 @@
-angular.module('navigation', ['ngRoute'])
+angular.module('navigation', ['ngRoute', 'navigation.controllers'])
 
-.config(function($stateProvider, $urlRouterProvider) {
-	$stateProvider
+.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.
 
-	.state('home', {
-		url: '/',    
-		templateUrl: 'views/home.html'
-		// controller: 'HomeController'
-	})
-
-	.state('about', {
-		url: '/about',    
-		templateUrl: 'views/about.html'
-		// controller: 'AboutController'
-	});
-
-	$routeProvider.otherwise({redirectTo: '/'});
-});
+	when('/', {
+        templateUrl: 'views/home.html',
+        controller: 'HomeController'
+  	}).
+	when('/about', {
+        templateUrl: 'views/about.html',
+        controller: 'AboutController'
+    }).
+  	otherwise({
+    	redirectTo: '/'
+  	});
+}]);

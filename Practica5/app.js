@@ -1,4 +1,4 @@
-angular.module('navigation', ['ngRoute', 'navigation.controllers'])
+angular.module('jsoop', ['ngRoute', 'jsoop.controllers'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.

@@ -1,0 +1,7 @@
+<h1>Home</h1>
+<h2>Welcome {{model.name}}</h2>
+<p>Your phone number is {{model.phone}}</p>
+<p>Status {{model.active}}</p>
+<input type="text" value="" ng-model="message"/>
+<button ng-click="model.print()">Print</button>
+<button ng-click="model.say(message)">Say hello</button>

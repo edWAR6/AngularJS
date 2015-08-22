@@ -1,0 +1,7 @@
+var Company = Conpany || function(id, name, phone){
+	var id = 0;
+	this.name = name;
+	this.phone = phone;
+
+	//...
+};

@@ -1,0 +1,44 @@
+Sincronico
+
+file.open();
+file.read();
+
+/////// C#
+
+int16 count = 0;
+system.out.println(count);
+sum(count);
+system.out.println(count);
+
+private int sum(num){
+	return num + 1;
+}
+
+/////// JS
+
+var count = 0;
+console.log(count);
+sum(count);
+console.log(count);
+
+function sum(num){
+	return num + 1;
+};
+
+
+//Tipos de estado;
+
+var name; // Null
+Client.delete(); // Si delete no existe, Undefined
+var client = {}; // Vacio
+
+product = product || 'Hola Mundo'; // La inicializa en {} si es null o undefined
+
+
+
+
+
+
+
+
+

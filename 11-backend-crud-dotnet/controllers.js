@@ -1,4 +1,4 @@
-angular.module('callbacks.controllers', ['callbacks.services'])
+angular.module('demo.controllers', ['demo.services'])
 
 .controller('HomeController', [ '$scope', function($scope) {
 	$scope.name = 'Eduardo';
@@ -16,12 +16,4 @@ angular.module('callbacks.controllers', ['callbacks.services'])
 	$scope.save = function(){
 		Products.add($scope.newproduct._id, $scope.newproduct._name);
 	};
-}])
-
-.controller('UsersController', ['$scope', 'Users', function($scope, Users) {	
-	$scope.users = Users.getUsers;
-
-	Users.addObserver(function(){
-		$scope.$apply();
-	});
 }]);

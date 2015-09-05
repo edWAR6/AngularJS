@@ -33,11 +33,32 @@ angular.module('callbacks.services', [])
 
 .factory('Users', ['$firebase', function($firebase) {
 	var observers = [];
-	var ref = new Firebase("https://inventorydemo123.firebaseio.com/Users");
+	var users = {};
+	var ref = new Firebase("https://inventorydemo123.firebaseio.com/Users");	
 
-	ref.on('child_added', function(snapshot){		
-		callObservers(snapshot.val());
+	ref.on('child_added', function(snapshot){
+		users[snapshot.key()] = snapshot.val();
+		callObservers();
 	});
+
+	ref.on('child_changed', function(snapshot){		
+		users[snapshot.key()] = snapshot.val();
+		callObservers();
+	});
+
+	ref.on('child_removed', function(snapshot){		
+		delete users[snapshot.key()];
+		callObservers();
+	});	
+
+	getUsers = function(){	
+		return users;
+	};
+
+	addUser = function(user){
+		var key = ref.push().key();
+		ref.child(key).set(user);
+	};	
 
 	var addObserver = function(observer){
 		observers.push(observer);
@@ -47,9 +68,10 @@ angular.module('callbacks.services', [])
 		angular.forEach(observers, function(callback){
 	      	callback(user);
 	    });
-	};
+	};	
 
 	return {
-		addObserver: addObserver
+		addObserver: addObserver,		
+		getUsers: getUsers
 	};
 }]);

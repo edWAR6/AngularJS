@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="TestEntities-Web.config Connection String" description="TestEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.TestModel.csdl|res://*/Models.TestModel.ssdl|res://*/Models.TestModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=helloworld506.database.windows.net;initial catalog=Test;persist security info=True;user id=test;password=Hell0W0rld;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="S:\\Work\\Cenfotec\\AngularJS\\11-backend-crud-dotnet\\Backend\\Backend\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='TestEntities']/@connectionString" />
+  </parameter>
+</parameters>

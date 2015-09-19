@@ -23,6 +23,9 @@ namespace Backend
 
             // Configuration to make sure only JSON is being returned
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
+
+            // Enables CORS
+            config.EnableCors();
         }
     }
 }

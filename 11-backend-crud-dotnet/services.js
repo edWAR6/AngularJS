@@ -1,33 +1,35 @@
 angular.module('demo.services', [])
 
-.factory('Products', function() {
-	var products = [
-		{
-			_id: 1,
-			_name: 'Coca Cola'
-		},
-		{
-			_id: 2,
-			_name: 'Pepsi'
-		}
-	];
+.factory('Products', ['$http', function($http) {
 
-	var add = function(id, name){
-		//products.push({_id: id, _name: name});
-		var product = {
-			_id: id,
-			_name: name
-		};
-		products.push(product);
+	var add = function(newproduct){		
+		return new Promise(function(sucess, fail){
+			$http.post('http://backenddotnet.azurewebsites.net/api/products', newproduct).then(function(result){
+					sucess();
+				}, function(error){
+					console.error(error);
+					fail(error);
+				}
+			);
+		});
 	};
 
 	var list = function(){
-		return products;
+		return new Promise(function(sucess, fail){
+			$http.get('http://backenddotnet.azurewebsites.net/api/products').then(
+				function(result){
+					sucess(result.data);
+				}, function(error){
+					console.error(error);
+					fail(error);
+				}
+			);
+		});			
 	};
 
 	return {
 		add: add,
 		list: list
 	};
-});
+}]);
 

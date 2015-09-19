@@ -16,4 +16,27 @@ angular.module('demo.controllers', ['demo.services'])
 	$scope.save = function(){
 		Products.add($scope.newproduct._id, $scope.newproduct._name);
 	};
+}])
+
+.controller('ProductsController', ['$scope', 'Products', function($scope, Products){
+	$scope.products = {};
+	list();
+
+	function list(){
+		Products.list().then(function(products){
+			$scope.products = products;
+			$scope.$apply();
+		}, function(error){
+			$scope.error = error;
+		});
+	};
+
+	$scope.save = function(){
+		Products.add($scope.newproduct).then(function(){
+			$scope.message = 'Success!!!';
+			list();
+		}, function(error){
+			$scope.error = error;
+		});
+	};
 }]);

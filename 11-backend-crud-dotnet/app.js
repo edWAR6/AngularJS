@@ -11,6 +11,10 @@ angular.module('demo', ['ngRoute', 'demo.controllers', 'demo.services'])
     templateUrl: 'views/about.html',
     controller: 'AboutController'
   }).
+  when('/products', {
+    templateUrl: 'views/products.html',
+    controller: 'ProductsController'
+  }).
 	otherwise({
   	redirectTo: '/'
 	});

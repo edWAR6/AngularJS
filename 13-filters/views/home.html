@@ -1,0 +1,48 @@
+<h1>Home</h1>
+
+<h2>Uppercase filter</h2>
+<p>{{lowertext | uppercase}}</p>
+
+<h2>Lowercase filter</h2>
+<p>{{uppertext | lowercase}}</p>
+
+<h2>Currency filters</h2>
+<span>{{price | currency}}</span>
+<br />
+<span>{{ price | currency:"USD$" }}</span>
+<br />
+<span>{{ price | currency:'€' }}</span>
+<br />
+<span>{{ price | currency:'€':4 }}</span>
+<br />
+
+<h2>Chain filters</h2>
+<span>{{ price | currency:"USD$" | lowercase }}</span>
+<br />
+
+<h2>Number filters</h2>
+<span>{{grade | number:4}}</span>
+<br/>
+<span>{{numbervalue}}</span>
+<br/>
+
+<h2>Date filters</h2>
+<span>{{dateCommon | date}}</span>
+<br/>
+<span>{{dateCommon | date:'fullDate'}}</span>
+<br/>
+<span>{{dateCommon | date:'yyyy'}}</span>
+<br/>
+<span>{{dateCommon | date:'dd-MM-yyyy'}}</span>
+<br/>
+<span>{{dateCommon | date:'MM/dd/yyyy'}}</span>
+<br/>
+<span>{{ dateUTC | date:"'Año:' yyyy, 'Mes:' MMM, 'Día:' EEEE" }}</span>
+<br/>
+
+<h2>Limits</h2>
+<span>{{longtext | limitTo:50}}</span>
+<br/>
+
+<h2>Custom filters</h2>
+<span>{{customvalue | wordcount}}</span>
